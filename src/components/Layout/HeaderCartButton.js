@@ -11,7 +11,6 @@ const HeaderCartButton = (props) => {
   }, 0);
 
   //object destructuring to pull just items out of cartCtx - now useEffect only fires when there's a change in cart items
-  const { items } = cartCtx;
   const btnClasses = `${classes.button} ${bump ? classes.bump : ""}`;
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const HeaderCartButton = (props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [items]);
+  }, [cartCtx.items]);
 
   return (
     <button className={btnClasses} onClick={props.onClick}>
